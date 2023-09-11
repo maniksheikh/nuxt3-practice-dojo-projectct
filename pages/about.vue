@@ -16,7 +16,10 @@
 export default {};
 </script>
 
-<style  scoped>
+<style>
+.router-link-exact-active {
+  color: rgb(38, 153, 115);
+}
  li {
     list-style: none;
     text-decoration: none;

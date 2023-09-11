@@ -1,23 +1,31 @@
 <template>
   <div>
-    <h2>Manik Products</h2>
-    <p>
-      This Product has been unload. Now we are going to new product load the
-      truck. this product is very helpful
-    </p>
+    <div class="grid grid-cols-4 gap-5">
+         <div v-for="p in products" :key="p">
+            <ProductCart :product="p"></ProductCart>
+         </div>
+    </div>
   </div>
 </template>
 
 <script setup>
 
+import ProductCart from '~/components/ProductCart.vue';
+
+
 definePageMeta({
-    layout: 'products'
+  layout: "products",
 });
+
+const { data: products } = await useFetch("https://fakestoreapi.com/products");
 </script>
 
-<style scoped>
+<style >
+.router-link-exact-active {
+  color: rgb(38, 153, 115);
+}
 h2 {
-    margin: 25px 15px;
+  margin: 25px 15px;
 }
 p {
   font-size: 1rem;
